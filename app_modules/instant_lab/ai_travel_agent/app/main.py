@@ -19,7 +19,7 @@ def main():
     import subprocess
     
     # Get the agent script path
-    agent_script = os.path.join(agent_path, 'local_travel_agent.py')
+    agent_script = os.path.join(agent_path, 'travel_agent.py')
     
     # Run the Streamlit app
     subprocess.run(['streamlit', 'run', agent_script])
