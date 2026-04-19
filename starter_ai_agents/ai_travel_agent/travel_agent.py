@@ -7,6 +7,7 @@ import re
 from agno.models.openai import OpenAIChat
 from icalendar import Calendar, Event
 from datetime import datetime, timedelta
+from shared.key_utils import get_api_key
 
 
 def generate_ics_content(plan_text:str, start_date: datetime = None) -> bytes:
@@ -66,11 +67,9 @@ st.caption("Plan your next adventure with AI Travel Planner by researching and p
 if 'itinerary' not in st.session_state:
     st.session_state.itinerary = None
 
-# Get OpenAI API key from user
-openai_api_key = st.text_input("Enter OpenAI API Key to access GPT-4o", type="password")
-
-# Get SerpAPI key from the user
-serp_api_key = st.text_input("Enter Serp API Key for Search functionality", type="password")
+# Get API keys from user
+openai_api_key = get_api_key("OpenAI")
+serp_api_key = get_api_key("SerpAPI")
 
 if openai_api_key and serp_api_key:
     researcher = Agent(

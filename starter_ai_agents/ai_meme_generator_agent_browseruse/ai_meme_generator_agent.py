@@ -5,6 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import HumanMessage
 import re
+from shared.key_utils import get_api_key
 
 async def generate_meme(query: str, model_choice: str, api_key: str) -> None:
     # Initialize the appropriate LLM based on user selection
@@ -80,16 +81,12 @@ def main():
         )
         
         # API key input based on model selection
-        api_key = ""
         if model_choice == "Claude":
-            api_key = st.text_input("Claude API Key", type="password", 
-                                  help="Get your API key from https://console.anthropic.com")
+            api_key = get_api_key("Claude")
         elif model_choice == "Deepseek":
-            api_key = st.text_input("Deepseek API Key", type="password",
-                                  help="Get your API key from https://platform.deepseek.com")
+            api_key = get_api_key("Deepseek")
         else:
-            api_key = st.text_input("OpenAI API Key", type="password",
-                                  help="Get your API key from https://platform.openai.com")
+            api_key = get_api_key("OpenAI")
 
     # Main content area
     st.markdown('<p class="header-text">🎨 Describe Your Meme Concept</p>', unsafe_allow_html=True)

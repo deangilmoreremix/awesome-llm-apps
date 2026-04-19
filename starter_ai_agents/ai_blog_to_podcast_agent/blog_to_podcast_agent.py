@@ -6,6 +6,7 @@ from agno.models.openai import OpenAIChat
 from agno.tools.firecrawl import FirecrawlTools
 from elevenlabs import ElevenLabs
 import streamlit as st
+from shared.key_utils import get_api_key
 
 # Streamlit Setup
 st.set_page_config(page_title="📰 ➡️ 🎙️ Blog to Podcast", page_icon="🎙️")
@@ -13,9 +14,9 @@ st.title("📰 ➡️ 🎙️ Blog to Podcast Agent")
 
 # API Keys (Runtime Input)
 st.sidebar.header("🔑 API Keys")
-openai_key = st.sidebar.text_input("OpenAI API Key", type="password")
-elevenlabs_key = st.sidebar.text_input("ElevenLabs API Key", type="password")
-firecrawl_key = st.sidebar.text_input("Firecrawl API Key", type="password")
+openai_key = get_api_key("OpenAI")
+elevenlabs_key = get_api_key("ElevenLabs")
+firecrawl_key = get_api_key("Firecrawl")
 
 # Blog URL Input
 url = st.text_input("Enter Blog URL:", "")
