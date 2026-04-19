@@ -34,6 +34,15 @@ def load_catalog() -> list[dict[str, Any]]:
             "tags": item.get("tags", []),
             "featured": bool(item.get("featured", False)),
         }
+
+        # Auto-correct status based on actual file presence
+        module_parts = record["module_path"].split(".")
+        if len(module_parts) >= 2:
+            hub = module_parts[0]
+            tool = module_parts[1]
+            app_file = ROOT_DIR / "app_modules" / hub / tool / "app.py"
+            record["status"] = "ready" if app_file.exists() else "advanced"
+
         normalized.append(record)
     return normalized
 
@@ -66,3 +75,10 @@ def get_all_tags(apps: list[dict[str, Any]] | None = None) -> list[str]:
             if isinstance(tag, str) and tag.strip():
                 tags.add(tag.strip())
     return sorted(tags)
+
+
+def get_app_by_module_path(module_path: str) -> dict[str, Any] | None:
+    for app in load_catalog():
+        if app["module_path"] == module_path:
+            return app
+    return None

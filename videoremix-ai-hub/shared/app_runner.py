@@ -4,6 +4,8 @@ import importlib
 
 import streamlit as st
 
+from shared.app_registry import get_app_by_module_path
+
 
 def run_app(module_path: str) -> None:
     try:
@@ -16,9 +18,23 @@ def run_app(module_path: str) -> None:
 
         module.main()
     except ModuleNotFoundError as exc:
-        st.error("This app module has not been added yet.")
-        st.caption(f"Missing module: {module_path}")
-        st.exception(exc)
+        # Show a placeholder UI for unembedded apps
+        app = get_app_by_module_path(module_path)
+        if app:
+            st.write(f"## {app['name']}")
+            st.info("🚧 This app is registered but the module is not yet implemented.")
+            st.caption(f"Source: `{app.get('source_path','unknown')}`")
+            st.write(f"**Status:** {app.get('status','advanced')}")
+            if app.get("external"):
+                st.warning("This app is marked as external and may be hosted elsewhere.")
+            st.write(
+                "The implementation will be placed in `app_modules/{}` with a `main()` function.".format(
+                    module_path.replace(".", "/")
+                )
+            )
+        else:
+            st.error(f"Module not found: {module_path}")
+            st.exception(exc)
     except Exception as exc:
         st.error(f"Could not launch app: {module_path}")
         st.exception(exc)
