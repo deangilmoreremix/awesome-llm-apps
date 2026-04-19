@@ -90,20 +90,10 @@ if api_modal:
         st.stop()
 else:
     # Fallback to text inputs if modal not available
-    # Try to get OpenAI key from environment or user input
-try:
-    openai_api_key = os.getenv("OPENAI_API_KEY") or st.text_input("OpenAI API Key", type="password", value=os.getenv("OPENAI_API_KEY", ""))
-except:
-    openai_api_key = st.text_input("OpenAI API Key", type="password")
+    openai_api_key = st.text_input("Enter OpenAI API Key to access GPT-4o", type="password")
     serp_api_key = st.text_input("Enter Serp API Key for Search functionality", type="password")
 
-if openai_api_key and (serp_api_key or not "serp" in locals()):
-    # API keys are available
-else:
-    st.warning("Please provide the required API keys above")
-    st.stop()
-
-if openai_api_key and (serp_api_key if "serp_api_key" in locals() else True):
+if openai_api_key and serp_api_key:
     researcher = Agent(
         name="Researcher",
         role="Searches for travel destinations, activities, and accommodations based on user preferences",
