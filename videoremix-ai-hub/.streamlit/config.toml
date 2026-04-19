@@ -1,0 +1,8 @@
+[global]
+
+developmentMode = false
+headless = true
+
+[logger]
+
+level = "INFO"
