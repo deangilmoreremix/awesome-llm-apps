@@ -11,8 +11,7 @@ module_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(module_dir))))
 
 # Add the original agent directory to path
-agent_path = os.path.join(project_root, 'starter_ai_agents', 'ai_travel_agent')
-sys.path.insert(0, agent_path)
+agent_path = os.path.join(project_root, './starter_ai_agents/ai_travel_agent')
 
 
 def main():
@@ -20,7 +19,7 @@ def main():
     import subprocess
     
     # Get the agent script path
-    agent_script = os.path.join(agent_path, 'travel_agent.py')
+    agent_script = os.path.join(agent_path, 'local_travel_agent.py')
     
     # Run the Streamlit app
     subprocess.run(['streamlit', 'run', agent_script])

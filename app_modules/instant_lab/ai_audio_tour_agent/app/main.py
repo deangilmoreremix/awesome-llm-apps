@@ -19,7 +19,7 @@ def main():
     import subprocess
     
     # Get the agent script path
-    agent_script = os.path.join(agent_path, 'ai_audio_tour_agent.py')
+    agent_script = os.path.join(agent_path, 'manager.py')
     
     # Run the Streamlit app
     subprocess.run(['streamlit', 'run', agent_script])

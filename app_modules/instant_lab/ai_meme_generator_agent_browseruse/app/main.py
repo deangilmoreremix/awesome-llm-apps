@@ -11,8 +11,7 @@ module_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(module_dir))))
 
 # Add the original agent directory to path
-agent_path = os.path.join(project_root, 'starter_ai_agents', 'ai_meme_generator_agent_browseruse')
-sys.path.insert(0, agent_path)
+agent_path = os.path.join(project_root, './starter_ai_agents/ai_meme_generator_agent_browseruse')
 
 
 def main():
