@@ -1,12 +1,13 @@
 [
   {
-    "id": "ai_blog_to_podcast_agent",
-    "name": "AI Blog to Podcast Agent",
-    "hub": "Instant Lab",
+    "id": "ai_blog_to_podcast",
+    "name": "AI Blog to Podcast",
+    "hub": "Creative Studio",
     "source_path": "starter_ai_agents/ai_blog_to_podcast_agent",
-    "module_path": "instant_lab.ai_blog_to_podcast_agent.app",
+    "module_path": "creative_studio.ai_blog_to_podcast.app",
     "status": "ready",
     "tags": ["instant-lab", "audio"],
+    "featured": true,
     "external": false
   },
   {
@@ -40,13 +41,14 @@
     "external": false
   },
   {
-    "id": "ai_meme_generator_agent_browseruse",
-    "name": "AI Meme Generator Agent (Browser)",
+    "id": "ai_meme_generator",
+    "name": "AI Meme Generator",
     "hub": "Instant Lab",
     "source_path": "starter_ai_agents/ai_meme_generator_agent_browseruse",
-    "module_path": "instant_lab.ai_meme_generator_agent_browseruse.app",
+    "module_path": "instant_lab.ai_meme_generator.app",
     "status": "ready",
     "tags": [],
+    "featured": true,
     "external": false
   },
   {
@@ -67,6 +69,7 @@
     "module_path": "instant_lab.ai_travel_agent.app",
     "status": "ready",
     "tags": ["travel"],
+    "featured": true,
     "external": false
   },
   {
@@ -350,11 +353,11 @@
     "external": false
   },
   {
-    "id": "ai_blog_to_podcast_agent",
+    "id": "ai_blog_to_podcast_agent_duplicate",
     "name": "AI Blog to Podcast Agent",
     "hub": "Creative Studio",
     "source_path": "starter_ai_agents/ai_blog_to_podcast_agent",
-    "module_path": "creative_studio.ai_blog_to_podcast_agent.app",
+    "module_path": "creative_studio.ai_blog_to_podcast.app",
     "status": "ready",
     "tags": ["instant-lab", "audio"],
     "external": false
