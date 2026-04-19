@@ -1,0 +1,155 @@
+{
+  "apps": {
+    "ai_travel_agent": {
+      "name": "AI Travel Agent",
+      "description": "Plan your next adventure with AI Travel Planner",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_travel_agent/travel_agent.py",
+      "required_keys": ["OPENAI_API_KEY", "SERPAPI_API_KEY"],
+      "featured": true
+    },
+    "ai_meme_generator_agent_browseruse": {
+      "name": "AI Meme Generator",
+      "description": "Generate memes using AI and browser automation",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_meme_generator_agent_browseruse/ai_meme_generator_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": true
+    },
+    "ai_blog_to_podcast_agent": {
+      "name": "AI Blog to Podcast",
+      "description": "Convert blog posts to podcast episodes",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_blog_to_podcast_agent/blog_to_podcast_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": true
+    },
+    "ai_breakup_recovery_agent": {
+      "name": "AI Breakup Recovery Agent",
+      "description": "Support and guidance for breakup recovery",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_breakup_recovery_agent/ai_breakup_recovery_agent.py",
+      "required_keys": ["GOOGLE_API_KEY"],
+      "featured": false
+    },
+    "ai_data_analysis_agent": {
+      "name": "AI Data Analysis Agent",
+      "description": "Analyze data using AI",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_data_analysis_agent/ai_data_analyst.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "ai_data_visualisation_agent": {
+      "name": "AI Data Visualisation Agent",
+      "description": "Create data visualizations with AI",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_data_visualisation_agent/ai_data_visualisation_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "ai_life_insurance_advisor_agent": {
+      "name": "AI Life Insurance Advisor",
+      "description": "Get life insurance advice from AI",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_life_insurance_advisor_agent/life_insurance_advisor_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "ai_medical_imaging_agent": {
+      "name": "AI Medical Imaging Agent",
+      "description": "Analyze medical images with AI",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_medical_imaging_agent/ai_medical_imaging.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "ai_music_generator_agent": {
+      "name": "AI Music Generator",
+      "description": "Generate music using AI",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_music_generator_agent/music_generator_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "ai_reasoning_agent": {
+      "name": "AI Reasoning Agent",
+      "description": "Advanced reasoning capabilities",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_reasoning_agent/reasoning_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "ai_startup_trend_analysis_agent": {
+      "name": "AI Startup Trend Analysis",
+      "description": "Analyze startup trends",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/ai_startup_trend_analysis_agent/startup_trends_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "mixture_of_agents": {
+      "name": "Mixture of Agents",
+      "description": "Multiple AI agents working together",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/mixture_of_agents/mixture-of-agents.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "multimodal_ai_agent": {
+      "name": "Multimodal AI Agent",
+      "description": "Handle multiple types of content",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/multimodal_ai_agent/mutimodal_agent.py",
+      "required_keys": ["GOOGLE_API_KEY"],
+      "featured": false
+    },
+    "openai_research_agent": {
+      "name": "OpenAI Research Agent",
+      "description": "Research using OpenAI models",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/openai_research_agent/research_agent.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "web_scraping_ai_agent": {
+      "name": "Web Scraping AI Agent",
+      "description": "Scrape websites with AI assistance",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/web_scraping_ai_agent/local_ai_scrapper.py",
+      "required_keys": ["OPENAI_API_KEY"],
+      "featured": false
+    },
+    "xai_finance_agent": {
+      "name": "XAI Finance Agent",
+      "description": "Financial analysis with xAI",
+      "status": "ready",
+      "category": "starter",
+      "path": "starter_ai_agents/xai_finance_agent/xai_finance_agent.py",
+      "required_keys": ["XAI_API_KEY"],
+      "featured": false
+    }
+  },
+  "metadata": {
+    "total_apps": 16,
+    "ready_apps": 16,
+    "advanced_apps": 0,
+    "last_updated": "2024-12-19",
+    "version": "1.0"
+  }
+}

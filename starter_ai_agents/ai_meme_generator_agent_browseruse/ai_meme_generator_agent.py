@@ -1,4 +1,5 @@
 import asyncio
+import os
 import streamlit as st
 from browser_use import Agent, SystemPrompt
 from langchain_openai import ChatOpenAI
