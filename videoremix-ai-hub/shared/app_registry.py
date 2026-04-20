@@ -35,13 +35,10 @@ def load_catalog() -> list[dict[str, Any]]:
             "featured": bool(item.get("featured", False)),
         }
 
-        # Auto-correct status based on actual file presence
-        module_parts = record["module_path"].split(".")
-        if len(module_parts) >= 2:
-            hub = module_parts[0]
-            tool = module_parts[1]
-            app_file = ROOT_DIR / "app_modules" / hub / tool / "app.py"
-            record["status"] = "ready" if app_file.exists() else "advanced"
+        # Auto-correct status based on source path existence
+        repo_root = ROOT_DIR.parent
+        source_dir = repo_root / record["source_path"]
+        record["status"] = "ready" if source_dir.exists() else "advanced"
 
         normalized.append(record)
     return normalized

@@ -89,6 +89,19 @@ def render_app_card(app: dict[str, Any], button_prefix: str = "launch") -> bool:
             unsafe_allow_html=True,
         )
         render_tag_chips(app.get("tags", []))
+        
+        # Add details dropdown
+        detailed_desc = app.get('detailed_description', '').strip()
+        capabilities = app.get('capabilities', [])
+        if detailed_desc or capabilities:
+            with st.expander("📋 Learn More"):
+                if detailed_desc:
+                    st.markdown(detailed_desc)
+                if capabilities:
+                    st.markdown("**Key Capabilities:**")
+                    for cap in capabilities:
+                        st.markdown(f"• {cap}")
+        
         return st.button(
             "Launch App",
             key=f"{button_prefix}_{app['id']}",

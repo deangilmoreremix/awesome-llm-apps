@@ -1,10 +1,19 @@
 # VideoRemix AI Hub
 
-A single Streamlit multipage hub that loads many AI apps from one catalog.
+A unified Streamlit interface for browsing and launching 100+ AI apps from the Awesome LLM Apps collection.
+
+## Features
+
+- **Browse by Hub**: Explore apps organized into categories like Instant Lab, Revenue Engine, Creative Studio, etc.
+- **Smart Filtering**: Filter by status (ready/advanced), tags, and featured apps.
+- **One-Click Launch**: Launch any compatible app in a new browser tab/window.
+- **Live Status**: Automatically detects available apps and their readiness.
 
 ## Run locally
 
 ```bash
+git clone https://github.com/deangilmoreremix/awesome-llm-apps.git
+cd awesome-llm-apps/videoremix-ai-hub
 pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
@@ -15,16 +24,19 @@ streamlit run streamlit_app.py
 2. In Streamlit Community Cloud, select this repo
 3. Main file path: `streamlit_app.py`
 
-## How apps are loaded
+## How apps are launched
 
-- Register apps in `data/app_catalog.json`
-- Create each module in `app_modules/<hub>/<tool_name>/app.py`
-- Each module must expose `main()`
+Apps are launched externally using `subprocess` to run `streamlit run <main_file>` in the app's source directory. This ensures each app runs in its own process without conflicts.
 
-## Current starter modules
+- Apps are registered in `data/app_catalog.json` with metadata including source paths.
+- The system automatically detects the main Python file for Streamlit apps.
+- Non-Streamlit apps or complex multi-agent systems show appropriate error messages.
+- All launch buttons work reliably for compatible apps.
 
-- **Instant Lab** / AI Meme Generator
-- **Instant Lab** / AI Travel Agent
-- **Creative Studio** / AI Blog to Podcast
+## Supported App Types
 
-The remaining catalog items are scaffolded as placeholders so the whole UI is navigable now.
+- ✅ **Streamlit Apps**: Direct launch support
+- ⚠️ **Agent Teams/Multi-Agent**: May require manual setup (run individually)
+- ❌ **Non-Streamlit Frameworks**: Not launchable via hub (run from source directory)
+
+For apps not launchable via the hub, follow the individual README instructions in their source directories.
