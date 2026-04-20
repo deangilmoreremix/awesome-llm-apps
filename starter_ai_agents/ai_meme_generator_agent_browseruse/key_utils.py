@@ -2,7 +2,7 @@ import streamlit as st
 
 def get_api_key(provider: str) -> str:
     """
-    Get API key for a given provider, prompting user if not already stored in session state.
+    Get API key for a given provider, checking secrets first, then prompting user if not already stored in session state.
 
     Args:
         provider: The name of the API provider (e.g., "OpenAI", "Claude", "ElevenLabs")
@@ -11,6 +11,11 @@ def get_api_key(provider: str) -> str:
         str: The API key entered by the user
     """
     session_key = f"{provider.lower()}_api_key"
+
+    # Check secrets first
+    secret_key = st.secrets.get(f"{provider.upper()}_API_KEY", "")
+    if secret_key:
+        return secret_key
 
     if session_key not in st.session_state:
         st.session_state[session_key] = ""
