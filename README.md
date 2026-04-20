@@ -88,6 +88,28 @@ streamlit run travel_agent.py
 ```
 
 
+## 🔑 API Key Management
+
+All Streamlit apps in this repository are designed to be self-contained for deployment on platforms like Streamlit Cloud. Instead of relying on global environment variables or secrets files, each app prompts users to input their own API keys directly through the UI.
+
+### For App Developers
+When porting new apps to this repository, follow these guidelines:
+
+1. **Use the shared key helper**: Import and use `from shared.key_utils import get_api_key` to handle API key input.
+2. **Prompt for keys directly**: Call `get_api_key("ProviderName")` where needed instead of using environment variables or config files.
+3. **Session state storage**: The helper automatically stores keys in Streamlit session state to persist across reruns.
+4. **Password input type**: Keys are input using `st.text_input` with `type="password"` for security.
+
+Example usage:
+```python
+from shared.key_utils import get_api_key
+
+openai_key = get_api_key("OpenAI")
+# Use openai_key in your app...
+```
+
+This approach ensures users can deploy apps immediately without configuration, providing their keys at runtime.
+
 ## 🔥 Featured This Month
 
 | Template | What it does | Stack |

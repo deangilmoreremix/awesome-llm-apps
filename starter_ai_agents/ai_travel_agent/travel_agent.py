@@ -7,17 +7,7 @@ import re
 from agno.models.openai import OpenAIChat
 from icalendar import Calendar, Event
 from datetime import datetime, timedelta
-import sys
-import os
-
-# Import API key modal
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../../'))
-try:
-    from api_key_modal import configure_api_keys
-except ImportError:
-    # Fallback for when modal is not available
-    def configure_api_keys(app_name):
-        return None
+from key_utils import get_api_key
 
 
 def generate_ics_content(plan_text:str, start_date: datetime = None) -> bytes:
@@ -77,31 +67,9 @@ st.caption("Plan your next adventure with AI Travel Planner by researching and p
 if 'itinerary' not in st.session_state:
     st.session_state.itinerary = None
 
-# Configure API keys using modal
-api_modal = configure_api_keys("AI Travel Planner")
-
-if api_modal:
-    openai_api_key = api_modal.get_key("OPENAI_API_KEY")
-    serp_api_key = api_modal.get_key("SERPAPI_API_KEY")
-
-    # Show configuration status
-    if not api_modal.has_required_keys():
-        st.warning("⚠️ Please configure your API keys using the modal above to continue.")
-        st.stop()
-else:
-    # Fallback to text inputs if modal not available
-    # Try to get OpenAI key from environment or user input
-try:
-    openai_api_key = os.getenv("OPENAI_API_KEY") or st.text_input("OpenAI API Key", type="password", value=os.getenv("OPENAI_API_KEY", ""))
-except:
-    openai_api_key = st.text_input("OpenAI API Key", type="password")
-    serp_api_key = st.text_input("Enter Serp API Key for Search functionality", type="password")
-
-if openai_api_key and (serp_api_key or not "serp" in locals()):
-    # API keys are available
-else:
-    st.warning("Please provide the required API keys above")
-    st.stop()
+# Get API keys from user
+openai_api_key = get_api_key("OpenAI")
+serp_api_key = get_api_key("SerpAPI")
 
 if openai_api_key and (serp_api_key if "serp_api_key" in locals() else True):
     researcher = Agent(
