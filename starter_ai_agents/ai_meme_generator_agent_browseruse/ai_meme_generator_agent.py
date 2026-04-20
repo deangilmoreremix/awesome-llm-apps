@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import HumanMessage
 import re
-from shared.key_utils import get_api_key
+from key_utils import get_api_key
 
 async def generate_meme(query: str, model_choice: str, api_key: str) -> None:
     # Initialize the appropriate LLM based on user selection

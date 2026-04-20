@@ -6,7 +6,7 @@ from agno.models.openai import OpenAIChat
 from agno.tools.firecrawl import FirecrawlTools
 from elevenlabs import ElevenLabs
 import streamlit as st
-from shared.key_utils import get_api_key
+from key_utils import get_api_key
 
 # Streamlit Setup
 st.set_page_config(page_title="📰 ➡️ 🎙️ Blog to Podcast", page_icon="🎙️")

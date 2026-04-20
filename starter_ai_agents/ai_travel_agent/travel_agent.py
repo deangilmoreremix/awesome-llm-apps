@@ -7,7 +7,7 @@ import re
 from agno.models.openai import OpenAIChat
 from icalendar import Calendar, Event
 from datetime import datetime, timedelta
-from shared.key_utils import get_api_key
+from key_utils import get_api_key
 
 
 def generate_ics_content(plan_text:str, start_date: datetime = None) -> bytes:
