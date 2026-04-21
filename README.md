@@ -78,6 +78,7 @@ You shouldn't have to rebuild the same RAG pipeline, agent loop, or MCP integrat
 
 ## 🚀 Quick Start
 
+### Option 1: Run Individual Apps
 Run your first agent in **30 seconds**:
 
 ```bash
@@ -86,6 +87,23 @@ cd awesome-llm-apps/starter_ai_agents/ai_travel_agent
 pip install -r requirements.txt
 streamlit run travel_agent.py
 ```
+
+### Option 2: Use the VideoRemix AI Hub (Recommended)
+Browse and launch all apps from one unified interface:
+
+```bash
+git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
+cd awesome-llm-apps/videoremix-ai-hub
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+The hub provides:
+- **Unified catalog** of 100+ AI apps across all categories
+- **One-click launching** - apps open in new tabs automatically
+- **Smart filtering** by status, tags, and featured apps
+- **Detailed previews** with expandable app information
+- **Multi-page navigation** between different app categories
 
 
 ## 🔑 API Key Management

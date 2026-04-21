@@ -9,20 +9,39 @@ A unified Streamlit interface for browsing and launching 100+ AI apps from the A
 - **One-Click Launch**: Launch any compatible app in a new browser tab/window.
 - **Live Status**: Automatically detects available apps and their readiness.
 
-## Run locally
+## Local Setup (Required for Full Functionality)
 
+The hub requires local execution to launch apps directly. Follow these steps:
+
+### Prerequisites
+- Python 3.8+
+- Git
+- Internet connection for API-dependent apps
+
+### Installation
 ```bash
 git clone https://github.com/deangilmoreremix/awesome-llm-apps.git
 cd awesome-llm-apps/videoremix-ai-hub
 pip install -r requirements.txt
+```
+
+### Running the Hub
+```bash
 streamlit run streamlit_app.py
 ```
 
-## Deploy to Streamlit Community Cloud
+### Launching Apps
+- Click "Launch App" on any card
+- Apps open in new browser tabs automatically
+- No additional setup needed for most apps
 
-1. Push this folder to GitHub
-2. In Streamlit Community Cloud, select this repo
-3. Main file path: `streamlit_app.py`
+## Architecture
+
+This is a **multi-page Streamlit application** with:
+- Main dashboard with app grid
+- Category-specific pages (Instant Lab, Revenue Engine, etc.)
+- Integrated app launcher using subprocess
+- Expandable app details with "Learn More" sections
 
 ## How apps are launched
 

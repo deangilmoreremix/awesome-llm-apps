@@ -43,19 +43,17 @@ def run_app(module_path: str) -> None:
         st.markdown(f'<a href="{deployed_url}" target="_blank"><button style="background-color:#FF4B4B;color:white;border:none;padding:10px 20px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;margin:4px 2px;cursor:pointer;border-radius:12px;">Launch {app["name"]}</button></a>', unsafe_allow_html=True)
         st.success(f"Opening {app['name']} in new tab")
     else:
-        # Try to launch if paths exist (e.g., full repo deployed)
+        # Launch app (local execution)
         try:
             root_dir = Path(__file__).resolve().parent.parent.parent
             full_source_path = root_dir / source_path
             full_path = full_source_path / main_file
-            if full_source_path.exists() and full_path.exists():
-                subprocess.Popen(['streamlit', 'run', str(full_path)], cwd=str(full_source_path))
-                st.success(f"Launched {app['name']} in new window/tab")
-            else:
-                raise Exception("Paths not found")
+            subprocess.Popen(['streamlit', 'run', str(full_path)], cwd=str(full_source_path))
+            st.success(f"✅ Launched {app['name']} in new window/tab!")
         except Exception as e:
-            # Fallback: show run command
-            st.info(f"**Run {app['name']} locally with:**\n\n```\n{run_command}\n```")
+            # Fallback: show run command with helpful message
+            st.warning(f"❌ Could not launch automatically. Please run this command in your terminal:\n\n```\n{run_command}\n```")
+            st.info("💡 Make sure you're running the hub locally and the repository is fully cloned")
     # Clear active app and go back to list
     from shared.session_state import clear_active_app
     clear_active_app()
