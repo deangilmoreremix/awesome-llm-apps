@@ -39,8 +39,8 @@
     "tags": [],
     "external": false,
     "main_file": "ai_data_analyst.py",
-    "detailed_description": "",
-    "capabilities": []
+    "detailed_description": "An AI-powered data analysis agent that helps users explore and analyze datasets using natural language queries. It can perform statistical analysis, generate visualizations, and provide insights from uploaded data.",
+    "capabilities": ["Data exploration and statistical analysis", "Natural language queries for data insights", "Automated visualization generation", "CSV and Excel file processing"]
   },
   {
     "id": "ai_medical_imaging_agent",
@@ -66,8 +66,8 @@
     "featured": true,
     "external": false,
     "main_file": "ai_meme_generator_agent.py",
-    "detailed_description": "",
-    "capabilities": []
+    "detailed_description": "A fun AI agent that generates custom memes based on user prompts. It uses browser automation to create and share memes, combining humor with AI creativity.",
+    "capabilities": ["Custom meme generation from text prompts", "Browser automation for meme creation", "Image and text overlay capabilities", "Social media sharing integration"]
   },
   {
     "id": "ai_music_generator_agent",
@@ -79,8 +79,8 @@
     "tags": [],
     "external": false,
     "main_file": "music_generator_agent.py",
-    "detailed_description": "",
-    "capabilities": []
+    "detailed_description": "An AI-powered music generation agent that creates original music based on user descriptions and preferences. It can generate melodies, harmonies, and complete tracks using advanced AI models.",
+    "capabilities": ["AI music composition and generation", "Melody and harmony creation", "Genre-specific music styles", "Audio file export and playback"]
   },
   {
     "id": "ai_travel_agent",
